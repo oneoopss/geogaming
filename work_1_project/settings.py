@@ -127,6 +127,6 @@ STATIC_ROOT = '/var/www/html/static'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-
+# фывв,
 
 
