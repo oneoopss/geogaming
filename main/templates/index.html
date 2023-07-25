@@ -8,20 +8,20 @@
 
 	<!-- Bootstrap reboot (для сброса стилей) -->
 	
-	<link rel="stylesheet" type="text/css" href="{% static 'bootstrap-reboot.min.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap-reboot.min.css' %}">
 
 	<!-- Bootstrap сетка -->
-	<link rel="stylesheet" type="text/css" href="{% static 'bootstrap-grid.min.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap-grid.min.css' %}">
 
 	<!-- Шрифты с Google Fonts -->
 	<link rel="preconnect" href="https://fonts.gstatic.com">
 	<link href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
 
 	<!-- Стили сайта -->
-	<link rel="stylesheet" type="text/css" href="{% static 'styles.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %}">
 	<script src="jquery-3.7.0.min.js"></script>
 </head>
-<script src="script.js"></script>
+<script src="js/script.js"></script>
 <nav class="navbar">
 	 	<div class="container">
 	 		<a href="#" class="navbar-brand">GEOGAMING</a>
@@ -37,7 +37,14 @@
 	 	</div>
 	 </nav>
 <body>
+<div id="photoModal" class="modal">
+    <span class="close" onclick="closeModal()">&times;</span>
+    <img src="123.jpg" alt="Фотография">
+  </div>
 
+  <button onclick="openModal()">Научиться программировать</button>
+
+  <script src="js/script.js"></script>
 
 	
 	
