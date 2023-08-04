@@ -4,7 +4,7 @@
 {% block content %}
 
 {% load static %}
-<<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="ru">
 <head>
 	<meta charset="UTF-8">
@@ -69,12 +69,26 @@
 	<div class="modal" id="my-modal">
 			<div class="modal-window">
 				<h1>Регистрация</h1>
+				<div>
+				
+					<h2>{{ error }}</h2>
+				
+					<form method="POST">
+						{% csrf_token %}
+					<div class="username">{{ form.username }}</div>
+					{{ form.password1 }}
+					{{ form.password2 }}
+					<button type="submit">
+						Зарегистрироваться
+					</button>
+					</form>
+				</div>
 				<button class="close-modal-btn">X</button>
 				
 			</div>
 			<div class="overlay"></div>
 	
-	
+
 </body>
 </html>
 
