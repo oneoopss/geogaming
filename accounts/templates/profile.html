@@ -1,9 +1,27 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<br> 
-<br> 
-Профиль
 
+{% if user.is_authenticated %}
+
+<html>
+<head>
+    <title>Создать событие</title>
+</head>
+<body>
+    <h1>Создать событие</h1>
+    <form method="POST">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Создать</button>
+    </form>
+</body>
+</html>
+
+{% else %}
+
+Пожалуйста, выполните вход
+
+{% endif %}
 
 {% endblock %}

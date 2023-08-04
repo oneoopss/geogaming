@@ -3,6 +3,8 @@ from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django.contrib.auth.models import User
 from django.db.utils import IntegrityError
 from django.contrib.auth import login, logout, authenticate
+from .forms import EventForm
+from .models import Event
 
  
 
@@ -26,7 +28,20 @@ def signupuser(r):
 
 
 def profile(r):
-    return render (r, 'profile.html')
+    if r.method == 'POST':
+        form = EventForm(r.POST)
+        if form.is_valid():
+            event = form.save(commit=False)
+            event.creator = r.user
+            event.save()
+            return redirect('events')
+    else:
+        form = EventForm()
+    return render(r, 'profile.html', {'form': form})
+
+def events(request):
+    events = Event.objects.filter(is_public=True)
+    return render(request, 'event_list.html', {'events': events})
 
 def logoutuser(r):
     if r.method == 'POST':
