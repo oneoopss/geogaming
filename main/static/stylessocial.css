@@ -103,6 +103,7 @@ body {
 	background-color: black;
 	color: white;
 }
+/** Всплывающее окно с кнопками РЕГИСТРАЦИЯ **/
 .modal {
 	position: fixed;
 	top: 0;
@@ -147,9 +148,10 @@ body {
 	z-index: 0;
 	visibility: hidden;
 }
-.overlay .overlay-open {
+.overlay .overlay-open {/** ПОКА НЕ РАБОТАЕТ НО СКОРО БУДЕТ **/
 	visibility: visible;
 }
+/** Всплывающее окно с кнопками РЕГИСТРАЦИЯ **/
 .close-modal-btn {
 	position: absolute;
 	right: 7px;
@@ -164,3 +166,75 @@ body {
 .username {
 	width: 50%;
 }
+/** Всплывающее окно с кнопками ВХОД **/
+
+.login {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	opacity: 0;
+	visibility: hidden;
+	transform: opacity .4 visibility .4s;
+}
+.login.open {
+	visibility: visible;
+	opacity: 1;
+}
+.window-login {
+	position: relative;
+	z-index: 2;
+	width: 50vw;
+	height: 90vh;
+	border-radius: 10px;
+	box-shadow: 0 10px 15px rgba(0, 0, 0, .4);
+	background-color: white;
+	padding: 50px;
+	transform:scale(0);
+	transition: 0.8s;
+	
+}
+.window-login-open {
+	transform:scale(1);
+}
+.close-modal-btn-login {
+	position: absolute;
+	right: 7px;
+	top: 7px;
+	border: none;
+	background: none;
+	opacity: 0.7;
+}
+.close-modal-btn-login:hover {
+	opacity: 1;
+}
+.username-login {
+	display: flex;
+	align-items: center;
+	position: absolute;
+	right: 10px;
+	top: 5px;
+}
+.exit-btn {
+	background-color:white ;
+	margin-top: 5px;
+	background: none;
+	border: 2px solid transparent;
+	opacity: .7;
+	border-radius: 10px;
+}
+.exit-btn:hover {
+	opacity: 1.2;
+	border-color: black;
+}
+.nameuser {
+	font-family: sans-serif;
+	font-size: 18;
+	padding-right: 10px;
+}
+
+/** Всплывающее окно с кнопками ВХОД **/

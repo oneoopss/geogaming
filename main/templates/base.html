@@ -1,15 +1,13 @@
-
+{% load static %}
+<link rel="stylesheet" href="{% static 'stylessocial.css' %}">
 {% if user.is_authenticated %}
-
-Вход выполнен как {{ user.username }}
-
-
-
-<form action="{% url 'logoutuser' %}" method="POST">
-    {% csrf_token %}
-<button type="submit">Выйти</button>
-</form>
-
+<span class="username-login">
+    <h3 class="nameuser" >{{ user.username }}</h3>
+    <form action="{% url 'logoutuser' %}" method="POST">
+        {% csrf_token %}
+    <button class="exit-btn" type="submit">Выйти</button>
+    </form>
+</span>
 {% else %}
 <br>
 
