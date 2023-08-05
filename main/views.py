@@ -19,7 +19,7 @@ def home(r):
                 return render (r, 'loginuser.html', {'form':AuthenticationForm(), 'error':'Неверный логин или пароль!'}) 
             else:
                 login(r, user)
-                return redirect('home')
+                return redirect('profile')
         except:
             if r.POST['password1'] == r.POST['password2']:
                 try:
