@@ -1,20 +1,49 @@
 {% extends 'base.html' %}
 
 {% block content %}
-
+{% load static %}
 {% if user.is_authenticated %}
 
 <html>
+<meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SocialWeb</title>
+
+    <!-- Bootstrap reboot (для сброса стилей) -->
+    <link rel="stylesheet" href="{% static 'bootstrap-reboot.min.css' %}">
+
+    <!-- Bootstrap сетка -->
+    <link rel="stylesheet" href="{% static 'bootstrap-grid.min.css' %}">
+
+    <!-- Шрифты с Google Fonts -->
+    <link rel="preconnect" href="{% static 'https://fonts.gstatic.com' %}">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+
+    <!-- Стили сайта -->
+    <link rel="stylesheet" href="{% static 'stylessocial.css' %}">
+    <!-- Скрипты сайта -->
+    <script src="{% static 'jquery-3.7.0.min.js' %}"></script>
+    <script src="{% static 'scriptsocial.js' %}"></script>
 <head>
     <title>Создать событие</title>
 </head>
 <body>
-    <h1>Создать событие</h1>
-    <form method="POST">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <button type="submit">Создать</button>
-    </form>
+    <div class="create-wrap">
+        <div class="create-post">
+            <h1>Создать событие</h1>
+            <form method="POST" >
+                {% csrf_token %}
+                <div class="form">
+                    <div id="id_title" placeholder="Введите название события" >{{ form.title }}</div>
+                    <div id="id_description" >{{ form.description }}</div>
+                    <div id="id_date" >{{ form.date }}</div>
+                    <div id="id_time" >{{ form.time }}</div>
+                    <div id="id_is_public" >{{ form.is_public }}</div>
+                    <button class="submit-form" type="submit">Создать</button>
+                </div>
+            </form>
+        </div> 
+    </div>
 </body>
 </html>
 
