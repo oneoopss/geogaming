@@ -19,14 +19,14 @@ def home(r):
                 return render (r, 'loginuser.html', {'form':AuthenticationForm(), 'error':'Неверный логин или пароль!'}) 
             else:
                 login(r, user)
-                return redirect('home')
+                return redirect('profile')
         except:
             if r.POST['password1'] == r.POST['password2']:
                 try:
                     user = User.objects.create_user(username=r.POST['username'], password=r.POST['password1'])
                     user.save()
                     login(r, user)
-                    return  redirect('home')
+                    return  redirect('profile')
                 except IntegrityError:
                         return render (r,'register.html', {'form_reg':UserCreationForm(), 'form_log':AuthenticationForm,  'error':'Пользователь с таким именем уже существует!'})
             else:
