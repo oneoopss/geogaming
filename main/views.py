@@ -30,7 +30,7 @@ def home(r):
                 except IntegrityError:
                         return render (r,'register.html', {'form_reg':UserCreationForm(), 'form_log':AuthenticationForm,  'error':'Пользователь с таким именем уже существует!'})
             else:
-                return render (r, 'index.html', {'form_reg':UserCreationForm(), 'form_log':AuthenticationForm, 'error':'Пароли не совпадают!'})
+                return render (r, 'register.html', {'form_reg':UserCreationForm(), 'form_log':AuthenticationForm, 'error':'Пароли не совпадают!'})
 
 def posts(r):
     if not r.user.is_authenticated:
