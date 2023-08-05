@@ -13,7 +13,7 @@ $(document).ready(function() {
     $('.content').toggleClass('content-active');
     $('.overlay').toggleClass('overlay-open'); 
   });
-  	
+  
   // Добавим обработчик события на кнопку закрытия модального окна
   $('.close-modal-btn').on('click', function(e) {
     e.preventDefault();
