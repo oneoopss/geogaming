@@ -29,6 +29,7 @@ def signupuser(r):
 
 def profile(r):
     if r.method == 'POST':
+        print(r.POST)
         form = EventForm(r.POST)
         if form.is_valid():
             event = form.save(commit=False)
