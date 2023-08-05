@@ -5,7 +5,7 @@ from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django.db.utils import IntegrityError
 from django.contrib.auth.models import User
 from django.http import JsonResponse
-
+# приветик
 
 
 # Create your views here.
