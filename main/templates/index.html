@@ -74,9 +74,9 @@
 					<h2>{{ error }}</h2>	
 					<form method="POST">
 						{% csrf_token %}
-					<div class="username">{{ form.username }}</div>
-					{{ form.password1 }}
-					{{ form.password2 }}
+					<div class="username">{{ form_reg.username }}</div>
+					{{ form_reg.password1 }}
+					{{ form_reg.password2 }}
 					<button type="submit">Зарегистрироваться</button>
 					</form>
 				</div>
@@ -90,8 +90,8 @@
 					<h2>{{ error }}</h2>	
 					<form method="POST">
 						{% csrf_token %}
-					<div class="username">{{ form.username }}</div>
-					{{ form.password1 }}
+					<div class="username">{{ form_log.username }}</div>
+					{{ form_log.password }}
 					<button type="submit">Войти</button>
 					</form>
 				</div>
