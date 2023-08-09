@@ -1,0 +1,108 @@
+<!-- Привет ЛОХ, ты козел-->
+<!-- хуй-->
+{% extends 'base.html' %}
+
+{% block content %}
+
+{% load static %}
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>SocialWeb</title>
+
+	<!-- Bootstrap reboot (для сброса стилей) -->
+	<link rel="stylesheet" href="{% static 'bootstrap-reboot.min.css' %}">
+
+	<!-- Bootstrap сетка -->
+	<link rel="stylesheet" href="{% static 'bootstrap-grid.min.css' %}">
+
+	<!-- Шрифты с Google Fonts -->
+	<link rel="preconnect" href="{% static 'https://fonts.gstatic.com' %}">
+	<link href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+
+	<!-- Стили сайта -->
+	<link rel="stylesheet" href="{% static 'stylessocial.css' %}">
+	<!-- Скрипты сайта -->
+	<script src="{% static 'jquery-3.7.0.min.js' %}"></script>
+	<script src="{% static 'scriptsocial.js' %}"></script>
+
+	
+	
+</head>
+<body>
+	
+	<!-- Боковое меню -->
+	<div class="menu">
+		<a href="#" class="menu-btn"></a>
+		<nav class="menu-list">
+			<a href="#main">Главная</a>
+			<a href="#news">Новости</a>
+			<a href="#friends">Друзья</a>
+			<a href="#photo">Фото</a>
+		</nav>
+		
+		<div class="profile-login">
+				<button class="login-btn" id="open-modal-btn-login">Войти</button>
+				<button class="sign-up" id="open-modal-btn">Зарегистрироваться</button>
+		</div>
+	</div>
+
+
+	
+	<!-- Главный контент -->
+	<div class="content">
+		<section class="main">
+			<a id="main">Главная</a>
+		</section>
+		<section class="news">
+			<a id="news">Новости</a>
+		</section>
+		<section class="friends">
+			<a id="friends">Друзья</a>
+		</section>
+		<section class="photo">
+			<a id="photo">Фото</a>
+		</section>
+
+	</div>
+	<!-- Всплывающее окно с кнопками -->
+	<div class="modal" id="my-modal">
+			<div class="modal-window"><!-- Всплывающее окно с кнопками РЕГИСТРАЦИЯ -->
+				<h1>Регистрация</h1>
+				<div>
+					<h2>{{ error }}</h2>	
+					<form method="POST">
+						{% csrf_token %}
+					<div class="username">{{ form_reg.username }}</div>
+					{{ form_reg.password1 }}
+					{{ form_reg.password2 }}
+					<button type="submit">Зарегистрироваться</button>
+					</form>
+				</div>
+				<button class="close-modal-btn">X</button>
+			</div>
+	</div>
+	<div class="login" id="my-login">
+		<div class="window-login"><!-- Всплывающее окно с кнопками ВХОД -->
+				<h1>Вход</h1>
+				<div>
+					<h2>{{ error }}</h2>	
+					<form method="POST">
+						{% csrf_token %}
+					<div class="username">{{ form_log.username }}</div>
+					{{ form_log.password }}
+					<button type="submit">Войти</button>
+					</form>
+				</div>
+				<button class="close-modal-btn-login">X</button>
+		
+	</div>
+			
+	
+
+</body>
+</html>
+<!-- ПОКА -->
+{% endblock %}
