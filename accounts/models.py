@@ -8,3 +8,8 @@ class Event(models.Model):
     time = models.TimeField()
     creator = models.ForeignKey(User, on_delete=models.CASCADE)
     is_public = models.BooleanField(default=True)
+
+class AvatarProfile(models.Model):
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    profile_picture = models.ImageField(upload_to='profile_pictures/')
+

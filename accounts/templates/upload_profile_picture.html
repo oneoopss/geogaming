@@ -1,0 +1,10 @@
+<form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Загрузить</button>
+</form>
+
+
+<!-- Ваш шаблон для отображения профиля -->
+<h1>Профиль пользователя</h1>
+<img src="{{ user_profile.profile_picture.url }}" alt="Фотография профиля">

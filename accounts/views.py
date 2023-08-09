@@ -3,8 +3,8 @@ from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django.contrib.auth.models import User
 from django.db.utils import IntegrityError
 from django.contrib.auth import login, logout, authenticate
-from .forms import EventForm
-from .models import Event
+from .forms import EventForm, UserProfileForm
+from .models import Event, AvatarProfile
 
  
 
@@ -25,6 +25,7 @@ def signupuser(r):
                 return render (r,'register.html', {'form':UserCreationForm(), 'error':'Пользователь с таким именем уже существует!'})
         else:
             return render (r, 'register.html', {'form':UserCreationForm(), 'error':'Пароли не совпадают!'})
+
 
 
 def profile(r):
@@ -60,3 +61,23 @@ def loginuser(r):
             login(r, user)
             return redirect('profile')
         
+
+def cat(request):
+    if request.method == 'POST':
+        form = UserProfileForm(request.POST, request.FILES)
+        if form.is_valid():
+            user_profile = form.save(commit=False)
+            user_profile.user = request.user
+            user_profile.save()
+            return redirect('profile')  # Перенаправьте пользователя на страницу профиля
+    else:
+        form = UserProfileForm()
+    
+    # Получите профиль пользователя, чтобы отобразить его фотографию
+    try:
+        user_profile = AvatarProfile.objects.get(user=request.user)
+        return render(request, 'upload_profile_picture.html', {'form': form, 'user_profile': user_profile})
+    except:
+        return render(request, 'upload_profile_picture.html', {'form': form, 'user_profile': 'Фото нету'})
+
+    
