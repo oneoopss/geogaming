@@ -1,5 +1,11 @@
+<!-- Привет ЛОХ, ты козел-->
+<!-- хуй-->
+{% extends 'base.html' %}
+
+{% block content %}
+
 {% load static %}
-<<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="ru">
 <head>
 	<meta charset="UTF-8">
@@ -26,6 +32,8 @@
 	
 </head>
 <body>
+	
+	<!-- Боковое меню -->
 	<div class="menu">
 		<a href="#" class="menu-btn"></a>
 		<nav class="menu-list">
@@ -34,15 +42,16 @@
 			<a href="#friends">Друзья</a>
 			<a href="#photo">Фото</a>
 		</nav>
+		
 		<div class="profile-login">
-				<button class="sign-in">Войти</button>
+				<button class="login-btn" id="open-modal-btn-login">Войти</button>
 				<button class="sign-up" id="open-modal-btn">Зарегистрироваться</button>
-				
-	</div>
 		</div>
-
-
 	</div>
+
+
+	
+	<!-- Главный контент -->
 	<div class="content">
 		<section class="main">
 			<a id="main">Главная</a>
@@ -58,14 +67,42 @@
 		</section>
 
 	</div>
+	<!-- Всплывающее окно с кнопками -->
 	<div class="modal" id="my-modal">
-			<div class="modal-window">
+			<div class="modal-window"><!-- Всплывающее окно с кнопками РЕГИСТРАЦИЯ -->
 				<h1>Регистрация</h1>
+				<div>
+					<h2>{{ error }}</h2>	
+					<form method="POST">
+						{% csrf_token %}
+					<div class="username">{{ form_reg.username }}</div>
+					{{ form_reg.password1 }}
+					{{ form_reg.password2 }}
+					<button type="submit">Зарегистрироваться</button>
+					</form>
+				</div>
 				<button class="close-modal-btn">X</button>
-				
 			</div>
-			<div class="overlay"></div>
+	</div>
+	<div class="login" id="my-login">
+		<div class="window-login"><!-- Всплывающее окно с кнопками ВХОД -->
+				<h1>Вход</h1>
+				<div>
+					<h2>{{ error }}</h2>	
+					<form method="POST">
+						{% csrf_token %}
+					<div class="username">{{ form_log.username }}</div>
+					{{ form_log.password }}
+					<button type="submit">Войти</button>
+					</form>
+				</div>
+				<button class="close-modal-btn-login">X</button>
+		
+	</div>
+			
 	
-	
+
 </body>
 </html>
+<!-- ПОКА -->
+{% endblock %}

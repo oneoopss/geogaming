@@ -1,0 +1,121 @@
+body, html {
+  margin: 0;
+  padding: 0;
+  overflow-y: hidden;
+   
+}
+main {
+	background-color: #303952;
+}
+.main-content {
+	display: flex;
+  	justify-content: center;
+  	align-items: center;
+  	height: 95vh;
+ 	width: 60vw;
+  	margin: 0 auto; /* Центрирование внешнего контейнера */
+}
+.wrap {
+	display: flex;
+  	align-items: center;
+  	justify-content: center;
+  	height: 95vh;
+ 	width: 100%;
+  	
+
+}
+.image-container {
+	width: 60%;
+  	height: 60vh;
+ 	margin: 0 20px;
+ 	
+
+}
+.login-container {
+	width: 60%;
+  	height: 60vh;
+  	background-color: white;
+  	margin: 0 20px;
+  	border-radius: 10px;
+  	display: flex;
+  	justify-content: center;
+ 	align-items: center;
+ 	box-shadow: 4px 4px 8px rgba(0, 0, 0, 1); /* Горизонтальное смещение, вертикальное смещение, размытие, цвет */
+}
+.footer {
+	width: 100vw;
+	height: 5vh;
+	background-color: #596275;
+}  	
+}
+#footer {
+  padding: 10px 0;
+  text-align: center; /* Центрируем содержимое горизонтально */
+ 
+
+}
+
+.footer-link {
+  display: flex;
+  justify-content: space-between;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  max-width: 960px;
+  width: 100%;
+  margin: 0 auto; /* Центрируем список внутри родительского блока */
+}
+
+.link-footer {
+  text-decoration: none;
+  color: lightgrey;
+  padding: 10px;
+  flex: 1;
+  text-align: center;
+  transition: background-color 0.3s;
+  display: block;
+}
+.logo {
+	width: 300px;
+	height: auto;
+}
+.cat_logo {
+	width: 400px;
+	height: auto;
+}
+.logo-title {
+	font-family: "Rubik", sans-serif;
+	font-weight: 400;
+	font-size: 30px;
+	color: white;
+}
+.sign-up-form {
+	width: 100%;
+  	max-width: 400px; 
+}
+.sign-up-form input,
+.sign-up-form button {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border-radius: 8px;
+  box-sizing: border-box;
+}
+.sign-up-form button {
+  background-color: #63cdda;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  padding: 10px; 
+}
+.sign-up-form button:hover {
+  background-color: #3dc1d3;
+ 
+}
+.divider {
+  height: 1px;
+  background-color: #ccc;
+  margin: 10px 0;
+}
+
