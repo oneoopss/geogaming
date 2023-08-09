@@ -1,0 +1,28 @@
+
+{% if user.is_authenticated and not user_profile.profile_picture.url %}
+
+<form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Загрузить</button>
+</form>
+{% endif %}
+
+
+{% if not user.is_authenticated %}
+
+Пожалуйста, выполните вход
+
+{% endif %}
+
+
+{% if user_profile.profile_picture.url %}
+
+<h1>Профиль пользователя</h1>
+<img src="{{ user_profile.profile_picture.url }}" alt="Фотография профиля">
+
+
+
+
+
+{% endif %}

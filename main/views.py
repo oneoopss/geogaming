@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth import login, logout, authenticate
-from .forms import PostForm
+# from .forms import PostForm
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django.db.utils import IntegrityError
 from django.contrib.auth.models import User
@@ -31,18 +31,4 @@ def home(r):
                         return render (r,'register.html', {'form_reg':UserCreationForm(), 'form_log':AuthenticationForm,  'error':'Пользователь с таким именем уже существует!'})
             else:
                 return render (r, 'register.html', {'form_reg':UserCreationForm(), 'form_log':AuthenticationForm, 'error':'Пароли не совпадают!'})
-
-def posts(r):
-    if not r.user.is_authenticated:
-        return redirect('home')
-    if r.method == 'POST':
-        form = PostForm(r.POST)
-        if form.is_valid():
-            post = form.save(commit=False)
-            post.author = r.user
-            post.save()
-            return redirect('profile')
-    else:
-        form = PostForm()
-    return render(r, 'posts.html', {'form': form})
 
