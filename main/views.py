@@ -32,18 +32,3 @@ def home(r):
             else:
                 return render (r, 'register.html', {'form_reg':UserCreationForm(), 'form_log':AuthenticationForm, 'error':'Пароли не совпадают!'})
 
-# def posts(r):
-#     if not r.user.is_authenticated:
-#         return redirect('home')
-#     if r.method == 'POST':
-#         form = PostForm(r.POST)
-#         if form.is_valid():
-#             post = form.save(commit=False)
-#             post.author = r.user
-#             post.save()
-#             return redirect('profile')
-#     else:
-#         form = PostForm()
-#     return render(r, 'posts.html', {'form': form})
-
-
