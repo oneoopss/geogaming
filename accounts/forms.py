@@ -1,6 +1,6 @@
 # forms.py
 from django import forms
-from .models import Event
+from .models import Event, AvatarProfile
 
 class EventForm(forms.ModelForm):
     class Meta:
@@ -13,3 +13,8 @@ class EventForm(forms.ModelForm):
             'time': forms.TimeInput(attrs={'type': 'time'}),
             'is_public': forms.CheckboxInput(attrs={'class': 'custom-checkbox'}),
         }
+
+class UserProfileForm(forms.ModelForm):
+    class Meta:
+        model = AvatarProfile
+        fields = ['profile_picture']
