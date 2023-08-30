@@ -32,15 +32,16 @@ main {
 
 }
 .login-container {
-	width: 60%;
-  	height: 60vh;
-  	background-color: white;
-  	margin: 0 20px;
-  	border-radius: 10px;
-  	display: flex;
-  	justify-content: center;
- 	align-items: center;
- 	box-shadow: 4px 4px 8px rgba(0, 0, 0, 1); /* Горизонтальное смещение, вертикальное смещение, размытие, цвет */
+ width: 60%;
+ height: 60vh;
+ background-color: white;
+ margin: 0 20px;
+ border-radius: 10px;
+ display: flex;
+ flex-direction: column;
+ justify-content: center;
+ align-items: center;
+ box-shadow: 4px 4px 8px rgba(0, 0, 0, 1); /* Горизонтальное смещение, вертикальное смещение, размытие, цвет */
 }
 .footer {
 	width: 100vw;
@@ -87,7 +88,7 @@ main {
 	font-family: "Rubik", sans-serif;
 	font-weight: 400;
 	font-size: 30px;
-	color: white;
+	color: #63cdda;
 }
 .sign-up-form {
 	width: 100%;
@@ -100,7 +101,9 @@ main {
   margin-bottom: 10px;
   border-radius: 8px;
   box-sizing: border-box;
+  font-family: Rubik;
 }
+
 .sign-up-form button {
   background-color: #63cdda;
   color: #fff;
@@ -118,4 +121,30 @@ main {
   background-color: #ccc;
   margin: 10px 0;
 }
+.register-btn {
+  width: 100%;
+  height: 44px;
+  padding: 10px;
+  margin-bottom: 10px;
+  border-radius: 8px;
+  box-sizing: border-box;
+  background-color: #786fa6;
+  border: none;
+  cursor: pointer;
+  padding: 10px;
+  font-family: Rubik;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: 0.5;
+}
+.register-btn:hover {
+  background-color: #574b90;
+}
+.register {
+  background: none;
+  border: none;
+  color: white;
+}
+
 
